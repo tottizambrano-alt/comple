@@ -235,21 +235,25 @@
             font-weight: normal;
         }
 
-        .img-container {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+      /* --- CONTENEDOR DE FOTOS CORREGIDO --- */
+.img-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center; /* Alinea las fotos al centro si tienen alturas ligeramente distintas */
+    margin-bottom: 20px;
+    width: 100%;
+}
 
-        .foto {
-            width: 48%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 3px solid #590913;
-        }
+.foto {
+    width: 48%;          /* Ocupa casi la mitad del contenedor */
+    height: auto;        /* ¡CLAVE! Hace que el alto se calcule solo según la imagen original */
+    max-height: 280px;   /* Evita que en pantallas gigantes la foto se vuelva enorme verticalmente */
+    object-fit: contain; /* En lugar de 'cover', 'contain' asegura que la foto se vea COMPLETA sin recortes */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 3px solid #590913;
+}
 
         .letter-text {
             color: #4a4a4a;
