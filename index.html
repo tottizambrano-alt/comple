@@ -323,28 +323,87 @@
         }
 
         /* --- AJUSTES ESPECIALES PARA CELULARES --- */
+/* --- AJUSTES ESPECIALES EXCLUSIVOS PARA CELULARES --- */
 @media (max-width: 576px) {
-    /* Ajusta el título de arriba del sobre para que no se amontone */
+    /* Ajustamos el cuerpo para dar espacio arriba y abajo */
+    body {
+        padding: 10px;
+        height: 100vh;
+    }
+
+    /* Modificamos las fotos de fondo para que mantengan la proporción 2x2 bonita */
+    .bg-foto {
+        height: 85% !important; /* Fuerza el uso del 85% que querías para que no tape todo */
+        object-fit: cover;
+        border-radius: 15px; /* Bordes un poco más sutiles para pantallas chicas */
+    }
+
+    /* Solución al texto amontonado: Lo posicionamos de forma relativa para que fluya de forma natural */
     .envelope-title {
-        font-size: 1.2rem;
-        top: -90px;
-        padding: 0 15px;
+        font-size: 1.15rem; /* Tamaño perfecto para leer en pantallas móviles */
+        position: relative;
+        top: 0; /* Reseteamos la posición absoluta para que no se suba al techo */
+        margin-bottom: 20px; /* Deja una separación limpia con el sobre */
+        padding: 0 10px;
+        line-height: 1.4;
     }
 
-    /* Ajusta el tamaño del sobre en pantallas muy chicas */
+    /* Cambiamos el contenedor para que organice el título y el sobre en vertical */
+    .wrapper {
+        flex-direction: column;
+        min-height: auto;
+        width: 100%;
+    }
+
+    /* Ajustamos el sobre para que se adapte al ancho móvil sin perder la forma */
     .envelope {
-        height: 260px; /* Bajamos la altura para que mantenga la proporción */
+        width: 100%;
+        max-width: 340px; /* Ancho estándar perfecto para pantallas de celulares */
+        height: 240px;    /* Altura proporcional a los 340px */
     }
 
-    /* Achicamos un poco el botón del sello para que no tape todo el sobre */
+    /* Achicamos un poco el botón del sello para que mantenga la proporción con el nuevo sobre */
     .seal-btn {
-        width: 90px;
-        height: 90px;
+        width: 85px;
+        height: 85px;
+        top: 50%; /* Lo recentramos en el sobre móvil */
     }
+    
     .seal-initials {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+    }
+    
+    .seal-date {
+        font-size: 0.65rem;
     }
 
+    /* --- AJUSTES PARA LA CARTA ABIERTA EN CELULAR --- */
+    .letter-card {
+        padding: 25px 15px;
+        max-height: 85vh;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .letter-title {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .letter-text {
+        font-size: 1.05rem;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .foto {
+        height: 150px; /* Tamaño ideal para que las dos fotos queden en fila sin salirse */
+    }
+    
+    .audio-container {
+        padding: 15px 10px;
+    }
+}
     /* Reducimos el espacio interno de la carta para ganar pantalla */
     .letter-card {
         padding: 25px 15px;
