@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -39,18 +39,18 @@
         }
 
         /* --- CUERPO BLOQUEADO (PANTALLA FIJA) --- */
-       body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    min-height: 100vh; /* Cambiado a min-height para que crezca con el scroll */
-    background: linear-gradient(135deg, #fdfcfb, #f2d9e6);
-    font-family: 'Georgia', serif;
-    overflow-y: auto; /* PERMITE EL SCROLL LIBRE HACIA ARRIBA Y ABAJO */
-    padding: 40px 20px; /* Más espacio arriba y abajo para que respire al scrollear */
-    perspective: 1000px;
-}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh; /* Altura exacta de la ventana visible */
+            background: linear-gradient(135deg, #fdfcfb, #f2d9e6);
+            font-family: 'Georgia', serif;
+            overflow: hidden; /* BLOQUEA POR COMPLETO EL SCROLL EN TODA LA PÁGINA */
+            padding: 20px;
+            perspective: 1000px;
+        }
 
         /* Contenedor principal */
         .wrapper {
@@ -64,18 +64,17 @@
         }
 
         /* --- EL SOBRE --- */
-       .envelope {
-    position: relative;
-    width: 520px; /* Tamaño máximo en computadora */
-    max-width: 90%; /* En celular ocupa el 90% de la pantalla para no salirse */
-    height: 340px;
-    background-color: #fffaf0;
-    border-radius: 8px;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    z-index: 2;
-    border: 6px solid #e6c9a8;
-    box-shadow: 0 15px 35px rgba(230, 201, 168, 0.4);
-}
+        .envelope {
+            position: relative;
+            width: 520px;
+            height: 340px;
+            background-color: #fffaf0;
+            border-radius: 8px;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            z-index: 2;
+            border: 6px solid #e6c9a8;
+            box-shadow: 0 15px 35px rgba(230, 201, 168, 0.4);
+        }
 
         /* Solapas */
         .flap {
@@ -321,115 +320,6 @@
             opacity: 0;
             pointer-events: none;
         }
-
-        /* --- AJUSTES ESPECIALES PARA CELULARES --- */
-/* --- AJUSTES ESPECIALES EXCLUSIVOS PARA CELULARES --- */
-@media (max-width: 576px) {
-    /* Ajustamos el cuerpo para dar espacio arriba y abajo */
-    body {
-        padding: 10px;
-        height: 100vh;
-    }
-
-    /* Modificamos las fotos de fondo para que mantengan la proporción 2x2 bonita */
-    .bg-foto {
-        height: 85% !important; /* Fuerza el uso del 85% que querías para que no tape todo */
-        object-fit: cover;
-        border-radius: 15px; /* Bordes un poco más sutiles para pantallas chicas */
-    }
-
-    /* Solución al texto amontonado: Lo posicionamos de forma relativa para que fluya de forma natural */
-    .envelope-title {
-        font-size: 1.15rem; /* Tamaño perfecto para leer en pantallas móviles */
-        position: relative;
-        top: 0; /* Reseteamos la posición absoluta para que no se suba al techo */
-        margin-bottom: 20px; /* Deja una separación limpia con el sobre */
-        padding: 0 10px;
-        line-height: 1.4;
-    }
-
-    /* Cambiamos el contenedor para que organice el título y el sobre en vertical */
-    .wrapper {
-        flex-direction: column;
-        min-height: auto;
-        width: 100%;
-    }
-
-    /* Ajustamos el sobre para que se adapte al ancho móvil sin perder la forma */
-    .envelope {
-        width: 100%;
-        max-width: 340px; /* Ancho estándar perfecto para pantallas de celulares */
-        height: 240px;    /* Altura proporcional a los 340px */
-    }
-
-    /* Achicamos un poco el botón del sello para que mantenga la proporción con el nuevo sobre */
-    .seal-btn {
-        width: 85px;
-        height: 85px;
-        top: 50%; /* Lo recentramos en el sobre móvil */
-    }
-    
-    .seal-initials {
-        font-size: 1.3rem;
-    }
-    
-    .seal-date {
-        font-size: 0.65rem;
-    }
-
-    /* --- AJUSTES PARA LA CARTA ABIERTA EN CELULAR --- */
-    .letter-card {
-        padding: 25px 15px;
-        max-height: 85vh;
-        width: 100%;
-        max-width: 350px;
-    }
-
-    .letter-title {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-    }
-
-    .letter-text {
-        font-size: 1.05rem;
-        line-height: 1.5;
-        text-align: justify;
-    }
-
-    .foto {
-        height: 150px; /* Tamaño ideal para que las dos fotos queden en fila sin salirse */
-    }
-    
-    .audio-container {
-        padding: 15px 10px;
-    }
-}
-    /* Reducimos el espacio interno de la carta para ganar pantalla */
-    .letter-card {
-        padding: 25px 15px;
-        max-height: 90vh;
-    }
-
-    .letter-title {
-        font-size: 1.8rem;
-    }
-
-    /* Hacemos que el texto de la carta se lea cómodo en celular */
-    .letter-text {
-        font-size: 1.05rem;
-        line-height: 1.6;
-    }
-
-    /* Reducimos la altura de las fotos de ustedes para que no ocupen toda la pantalla */
-    .foto {
-        height: 160px;
-    }
-    
-    /* Ajustamos el tamaño del contenedor del audio */
-    .audio-container {
-        padding: 20px 15px;
-    }
-}
     </style>
 </head>
 <body>
