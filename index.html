@@ -39,18 +39,18 @@
         }
 
         /* --- CUERPO BLOQUEADO (PANTALLA FIJA) --- */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100vw;
-            height: 100vh; /* Altura exacta de la ventana visible */
-            background: linear-gradient(135deg, #fdfcfb, #f2d9e6);
-            font-family: 'Georgia', serif;
-            overflow: hidden; /* BLOQUEA POR COMPLETO EL SCROLL EN TODA LA PÁGINA */
-            padding: 20px;
-            perspective: 1000px;
-        }
+       body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh; /* Cambiado a min-height para que crezca con el scroll */
+    background: linear-gradient(135deg, #fdfcfb, #f2d9e6);
+    font-family: 'Georgia', serif;
+    overflow-y: auto; /* PERMITE EL SCROLL LIBRE HACIA ARRIBA Y ABAJO */
+    padding: 40px 20px; /* Más espacio arriba y abajo para que respire al scrollear */
+    perspective: 1000px;
+}
 
         /* Contenedor principal */
         .wrapper {
