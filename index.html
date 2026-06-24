@@ -321,6 +321,56 @@
             opacity: 0;
             pointer-events: none;
         }
+
+        /* --- AJUSTES ESPECIALES PARA CELULARES --- */
+@media (max-width: 576px) {
+    /* Ajusta el título de arriba del sobre para que no se amontone */
+    .envelope-title {
+        font-size: 1.2rem;
+        top: -90px;
+        padding: 0 15px;
+    }
+
+    /* Ajusta el tamaño del sobre en pantallas muy chicas */
+    .envelope {
+        height: 260px; /* Bajamos la altura para que mantenga la proporción */
+    }
+
+    /* Achicamos un poco el botón del sello para que no tape todo el sobre */
+    .seal-btn {
+        width: 90px;
+        height: 90px;
+    }
+    .seal-initials {
+        font-size: 1.4rem;
+    }
+
+    /* Reducimos el espacio interno de la carta para ganar pantalla */
+    .letter-card {
+        padding: 25px 15px;
+        max-height: 90vh;
+    }
+
+    .letter-title {
+        font-size: 1.8rem;
+    }
+
+    /* Hacemos que el texto de la carta se lea cómodo en celular */
+    .letter-text {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    /* Reducimos la altura de las fotos de ustedes para que no ocupen toda la pantalla */
+    .foto {
+        height: 160px;
+    }
+    
+    /* Ajustamos el tamaño del contenedor del audio */
+    .audio-container {
+        padding: 20px 15px;
+    }
+}
     </style>
 </head>
 <body>
