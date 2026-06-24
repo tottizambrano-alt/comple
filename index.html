@@ -11,32 +11,63 @@
             box-sizing: border-box;
         }
 
-        /* --- FOTOS DE FONDO ADAPTADAS --- */
-        .background-photos {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 10px;
-            padding: 10px;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
+      /* --- FOTOS DE FONDO (Por defecto para Celular: 4 fotos en 2x2) --- */
+.background-photos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    grid-template-rows: 1fr 1fr;    /* 2 filas */
+    gap: 10px;
+    padding: 10px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
 
-        .bg-foto {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 25px;
-            opacity: 0.25;
-            filter: sepia(20%) contrast(90%);
-            border: 4px solid #d4af37;
-        }
+.bg-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0.25;
+    filter: sepia(20%) contrast(90%);
+    border: 3px solid #d4af37;
+}
+
+/* --- EL SOBRE CORREGIDO (Proporcional para que no se deforme) --- */
+.envelope {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 300px; /* Reducido un poco para que mantenga la proporción áurea de una carta */
+    background-color: #fffaf0;
+    border-radius: 8px;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    z-index: 2;
+    border: 6px solid #e6c9a8;
+    box-shadow: 0 15px 35px rgba(230, 201, 168, 0.4);
+}
+
+/* --- REGLAS ESPECIALES PARA COMPUTADORA (Pantallas mayores a 768px) --- */
+@media (min-width: 768px) {
+    .background-photos {
+        grid-template-columns: 1fr 1fr; /* Solo 2 columnas */
+        grid-template-rows: 1fr;        /* 1 sola fila */
+    }
+
+    /* Ocultamos las fotos extra en la computadora */
+    .solo-celular {
+        display: none;
+    }
+    
+    .envelope {
+        height: 340px; /* En compu puede ser un poco más alta */
+    }
+}
 
         /* --- CUERPO BLOQUEADO (PANTALLA FIJA) --- */
         body {
@@ -333,10 +364,12 @@
 </head>
 <body>
 
-    <div class="background-photos">
-        <img src="fondo_pareja1.jpeg" alt="Nuestro recuerdo 1" class="bg-foto">
-        <img src="fondo_pareja2.jpeg" alt="Nuestro recuerdo 2" class="bg-foto">
-    </div>
+  <div class="background-photos">
+    <img src="fondo_pareja1.jpeg" alt="Recuerdo 1" class="bg-foto">
+    <img src="fondo_pareja2.jpeg" alt="Recuerdo 2" class="bg-foto">
+    <img src="fondo_pareja3.jpeg" alt="Recuerdo 3" class="bg-foto solo-celular">
+    <img src="fondo_pareja4.jpeg" alt="Recuerdo 4" class="bg-foto solo-celular">
+</div>
 
     <div class="wrapper" id="main-wrapper">
 
