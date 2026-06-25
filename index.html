@@ -423,7 +423,7 @@
 
     </div>
 
-    <script>
+  <script>
         function openEnvelope() {
             const wrapper = document.getElementById('main-wrapper');
             const envelope = document.getElementById('physical-envelope');
@@ -433,30 +433,37 @@
             // 1. Inicia la animación abriendo la solapa superior
             wrapper.classList.add('opened');
 
-  // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
-setTimeout(() => {
-    envelope.style.opacity = '0';
-    envTitle.style.opacity = '0';
+            // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
+            setTimeout(() => {
+                envelope.style.opacity = '0';
+                envTitle.style.opacity = '0';
 
-    // 3. Cuando el sobre se oculta, mostramos la carta y activamos el audio
-    setTimeout(() => {
-        envelope.style.display = 'none';
-        envTitle.style.display = 'none';
-        letter.style.display = 'block';
+                // 3. Cuando el sobre se oculta, mostramos la carta y activamos el audio
+                setTimeout(() => {
+                    envelope.style.display = 'none';
+                    envTitle.style.display = 'none';
+                    letter.style.display = 'block';
 
-        // --- REPRODUCCIÓN AUTOMÁTICA DEL AUDIO ---
-        const audio = document.getElementById('musica-fondo');
-        if (audio) {
-            audio.play().catch(error => {
-                console.log("El navegador bloqueó el autoplay:", error);
-            });
+                    // --- REPRODUCCIÓN AUTOMÁTICA ---
+                    const audio = document.getElementById('musica-fondo');
+                    if (audio) {
+                        audio.play().catch(error => {
+                            console.log("El navegador bloqueó el autoplay:", error);
+                        });
+                    }
+
+                    // 4. Hace que la carta aparezca suavemente
+                    setTimeout(() => {
+                        letter.style.opacity = '1';
+                        letter.style.transform = 'scale(1)';
+                        // Iniciar la lluvia de corazones
+                        setInterval(createHeart, 300);
+                    }, 50);
+                }, 400);
+
+            }, 700);
         }
 
-        // ... resto de tu código ...
-
-    }, 400); // 👈 ¡ESTE ES EL SEGUNDO TIEMPO (400 milisegundos)!
-
-}, 700); // 👈 ¡ESTE ES EL PRIMER TIEMPO (700 milisegundos)!
         // --- FUNCIÓN PARA GENERAR CORAZONES FLOTANTES ---
         function createHeart() {
             const heart = document.createElement('div');
