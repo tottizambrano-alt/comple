@@ -453,16 +453,19 @@
                     }
 
                     // 4. Hace que la carta aparezca suavemente
-                    setTimeout(() => {
-                        letter.style.opacity = '1';
-                        letter.style.transform = 'scale(1)';
-                        // Iniciar la lluvia de corazones
-                        setInterval(createHeart, 300);
-                    }, 50);
-                }, 400);
+                 setTimeout(() => {
+                const audio = document.getElementById('musica-fondo');
+                if (audio) {
+                    audio.play().catch(error => {
+                        console.log("El navegador bloqueó el autoplay:", error);
+                    });
+                }
+            }, 1000); // 👈 Aquí cambias el tiempo. 1000 ms = 1 segundo exacto.
 
-            }, 700);
-        }
+        }, 400); // Tiempo que tarda el sobre en desaparecer
+
+    }, 700); // Tiempo que tarda la solapa en abrirse
+}
 
         // --- FUNCIÓN PARA GENERAR CORAZONES FLOTANTES ---
         function createHeart() {
