@@ -433,8 +433,7 @@
             // 1. Inicia la animación abriendo la solapa superior
             wrapper.classList.add('opened');
 
-            // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
-           // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
+  // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
 setTimeout(() => {
     envelope.style.opacity = '0';
     envTitle.style.opacity = '0';
@@ -458,7 +457,6 @@ setTimeout(() => {
     }, 400); // 👈 ¡ESTE ES EL SEGUNDO TIEMPO (400 milisegundos)!
 
 }, 700); // 👈 ¡ESTE ES EL PRIMER TIEMPO (700 milisegundos)!
-
         // --- FUNCIÓN PARA GENERAR CORAZONES FLOTANTES ---
         function createHeart() {
             const heart = document.createElement('div');
