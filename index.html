@@ -434,38 +434,30 @@
             wrapper.classList.add('opened');
 
             // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
-            setTimeout(() => {
-                envelope.style.opacity = '0';
-                envTitle.style.opacity = '0';
+           // 2. Esperamos que termine de abrirse la solapa para desvanecer el sobre
+setTimeout(() => {
+    envelope.style.opacity = '0';
+    envTitle.style.opacity = '0';
 
-                // 3. Cuando el sobre se oculta, mostramos la carta y activamos el audio
-                setTimeout(() => {
-                    envelope.style.display = 'none';
-                    envTitle.style.display = 'none';
-                    letter.style.display = 'block';
+    // 3. Cuando el sobre se oculta, mostramos la carta y activamos el audio
+    setTimeout(() => {
+        envelope.style.display = 'none';
+        envTitle.style.display = 'none';
+        letter.style.display = 'block';
 
-                    // --- REPRODUCCIÓN AUTOMÁTICA ---
-                    const audio = document.getElementById('musica-fondo');
-                    if (audio) {
-                        audio.play().catch(error => {
-                            console.log("El navegador bloqueó el autoplay:", error);
-                        });
-                    }
+        // --- REPRODUCCIÓN AUTOMÁTICA DEL AUDIO ---
+        const audio = document.getElementById('musica-fondo');
+        if (audio) {
+            audio.play().catch(error => {
+                console.log("El navegador bloqueó el autoplay:", error);
+            });
+        }
 
-                    // 4. Hace que la carta aparezca suavemente
-                 setTimeout(() => {
-                const audio = document.getElementById('musica-fondo');
-                if (audio) {
-                    audio.play().catch(error => {
-                        console.log("El navegador bloqueó el autoplay:", error);
-                    });
-                }
-            }, 1000); // 👈 Aquí cambias el tiempo. 1000 ms = 1 segundo exacto.
+        // ... resto de tu código ...
 
-        }, 400); // Tiempo que tarda el sobre en desaparecer
+    }, 400); // 👈 ¡ESTE ES EL SEGUNDO TIEMPO (400 milisegundos)!
 
-    }, 700); // Tiempo que tarda la solapa en abrirse
-}
+}, 700); // 👈 ¡ESTE ES EL PRIMER TIEMPO (700 milisegundos)!
 
         // --- FUNCIÓN PARA GENERAR CORAZONES FLOTANTES ---
         function createHeart() {
